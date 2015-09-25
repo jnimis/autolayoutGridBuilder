@@ -8,6 +8,13 @@
 
 #import "ViewController.h"
 
+#define GRID_IMAGE @"grid_space"
+#define MID_MARGIN @0
+#define LEFT_MARGIN @10
+#define RIGHT_MARGIN @10
+#define TOP_MARGIN @10
+#define BOTTOM_MARGIN @10
+
 @interface ViewController ()
 
 @end
@@ -27,23 +34,27 @@
 {
     targetView.translatesAutoresizingMaskIntoConstraints = NO;
 
-    NSDictionary *metrics = @{ @"topMargin":@10, @"midMargin":@0, @"leftMargin":@10, @"rightMargin":@10, @"bottomMargin":@10 };
+    // these metrics can be edited to suit the project
+    NSDictionary *metrics = @{ @"topMargin":TOP_MARGIN, @"midMargin":MID_MARGIN, @"leftMargin":LEFT_MARGIN, @"rightMargin":RIGHT_MARGIN, @"bottomMargin":BOTTOM_MARGIN };
     
-    NSMutableArray *tileViews = [NSMutableArray array];
+    // initialize mutable variables
+    NSMutableArray *tileViews = [NSMutableArray array];  // I don't use the array of tiles yet, but this could come in handy (as a returned value, e.g.)
     NSMutableString *constraintString = [[NSMutableString alloc] init];
     NSMutableDictionary *bindings = [[NSMutableDictionary alloc] init];
     
+    // start vertical constraint visual language string
     constraintString = [NSMutableString stringWithString:@"V:|-(topMargin)-"];
     
-    NSLog(@"constraint strings:");
-    
+    // iterate across rows
     for (int row = 1; row <= gridSize; row ++) {
         
+        // start horizontal constraint string (a new one for each row)
         NSMutableString *rowConstraint = [NSMutableString stringWithString:@"H:|-(leftMargin)-"];
         
+        // iterate across columns (views within each row)
         for (int i = 1; i <= gridSize; i++) {
             
-            UIImageView *thisView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"grid_space"]];
+            UIImageView *thisView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:GRID_IMAGE]];
             thisView.translatesAutoresizingMaskIntoConstraints = NO;
             int tileID = (((row - 1) * gridSize) + i);
             NSString *viewName = [NSString stringWithFormat:@"tileView%d", tileID];
@@ -63,12 +74,14 @@
                                                                   constant:0.0]];
             
             
+            // add this view to the horizontal constraint string
             [rowConstraint appendFormat:@"[%@]%@", viewName, (i < gridSize) ? @"-(midMargin)-" : @""];
             
+            // add this view to the superview
             [targetView addSubview:thisView];
             
             if (i == 1) {
-                // add left-most tile to vertical constraint
+                // add left-most tile to vertical constraint, and align it on the left of the superview
                 [constraintString appendFormat:@"[%@]%@", viewName, (row < gridSize) ? @"-(midMargin)-" : @""];
                 
                 [targetView addConstraint:[NSLayoutConstraint constraintWithItem:thisView
@@ -83,8 +96,9 @@
             }
             
             if (i > 1) {
-                // make this view's width equal to the last view
+                // make this view's width and height equal to that of the last view
                 UIImageView* lastView = bindings[[NSString stringWithFormat:@"tileView%d", (tileID - 1)]];
+                
                 [targetView addConstraint:[NSLayoutConstraint constraintWithItem:thisView
                                                                     attribute:NSLayoutAttributeWidth
                                                                     relatedBy:NSLayoutRelationEqual
@@ -105,6 +119,7 @@
             
         }
         
+        // finish the horizontal constraint string, then add it to the view
         [rowConstraint appendString:@"-(rightMargin)-|"];
         
         [targetView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:rowConstraint
@@ -114,6 +129,7 @@
         
     }
     
+    // finish the vertical constraint string, then add it to the view
     [constraintString appendFormat:@"-(bottomMargin)-|"];
     
     [targetView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:constraintString
@@ -132,7 +148,8 @@
 
 - (IBAction)buildGrid:(id)sender {
     
-    [self buildGridOfSize:3 inView:gridView];
+    // as an example, a 3x3 grid in an IB-defined grid
+    [self buildGridOfSize:5 inView:gridView];
     
 }
 @end
