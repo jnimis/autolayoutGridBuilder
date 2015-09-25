@@ -14,6 +14,9 @@
 		2A02E2D81BA5168300999E8C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A02E2D71BA5168300999E8C /* Images.xcassets */; };
 		2A02E2DB1BA5168300999E8C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A02E2D91BA5168300999E8C /* LaunchScreen.xib */; };
 		2A02E2E71BA5168300999E8C /* AutoLayoutGridTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A02E2E61BA5168300999E8C /* AutoLayoutGridTests.m */; };
+		2A02E2F11BA5BFEA00999E8C /* WoodTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A02E2F01BA5BFEA00999E8C /* WoodTexture.png */; };
+		2A120DCB1BAD882E00494D24 /* grid_space.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A120DCA1BAD882E00494D24 /* grid_space.png */; };
+		2A120DCE1BAFB36600494D24 /* HCGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A120DCD1BAFB36600494D24 /* HCGridView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,10 @@
 		2A02E2E01BA5168300999E8C /* AutoLayoutGridTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoLayoutGridTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A02E2E51BA5168300999E8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A02E2E61BA5168300999E8C /* AutoLayoutGridTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutGridTests.m; sourceTree = "<group>"; };
+		2A02E2F01BA5BFEA00999E8C /* WoodTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WoodTexture.png; sourceTree = "<group>"; };
+		2A120DCA1BAD882E00494D24 /* grid_space.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid_space.png; sourceTree = "<group>"; };
+		2A120DCC1BAFB36600494D24 /* HCGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCGridView.h; sourceTree = "<group>"; };
+		2A120DCD1BAFB36600494D24 /* HCGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCGridView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +96,8 @@
 				2A02E2D71BA5168300999E8C /* Images.xcassets */,
 				2A02E2D91BA5168300999E8C /* LaunchScreen.xib */,
 				2A02E2CA1BA5168300999E8C /* Supporting Files */,
+				2A120DCC1BAFB36600494D24 /* HCGridView.h */,
+				2A120DCD1BAFB36600494D24 /* HCGridView.m */,
 			);
 			path = AutoLayoutGrid;
 			sourceTree = "<group>";
@@ -96,6 +105,8 @@
 		2A02E2CA1BA5168300999E8C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2A02E2F01BA5BFEA00999E8C /* WoodTexture.png */,
+				2A120DCA1BAD882E00494D24 /* grid_space.png */,
 				2A02E2CB1BA5168300999E8C /* Info.plist */,
 				2A02E2CC1BA5168300999E8C /* main.m */,
 			);
@@ -199,7 +210,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A02E2F11BA5BFEA00999E8C /* WoodTexture.png in Resources */,
 				2A02E2D61BA5168300999E8C /* Main.storyboard in Resources */,
+				2A120DCB1BAD882E00494D24 /* grid_space.png in Resources */,
 				2A02E2DB1BA5168300999E8C /* LaunchScreen.xib in Resources */,
 				2A02E2D81BA5168300999E8C /* Images.xcassets in Resources */,
 			);
@@ -222,6 +235,7 @@
 				2A02E2D31BA5168300999E8C /* ViewController.m in Sources */,
 				2A02E2D01BA5168300999E8C /* AppDelegate.m in Sources */,
 				2A02E2CD1BA5168300999E8C /* main.m in Sources */,
+				2A120DCE1BAFB36600494D24 /* HCGridView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +426,7 @@
 				2A02E2EC1BA5168300999E8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A02E2ED1BA5168300999E8C /* Build configuration list for PBXNativeTarget "AutoLayoutGridTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +435,7 @@
 				2A02E2EF1BA5168300999E8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

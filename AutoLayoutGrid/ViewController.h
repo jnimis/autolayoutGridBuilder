@@ -10,6 +10,10 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIView *gridView;
+
+- (IBAction)buildGrid:(id)sender;
+
 
 @end
 
